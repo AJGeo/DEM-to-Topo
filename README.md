@@ -39,6 +39,8 @@
  ######Combine Hillshade and Slope
  gdal_calc.bat -A C:\GIS\STRM\AfriS\Slope\s01_e037_slope.tif -B C:\GIS\STRM\AfriS\Shade\s01_e037_shade.tif --outfile=C:\GIS\STRM\AfriS\Topo3\SlopeHillShadeComb\s01_e037_slope_hillshade.tif --calc="((((A/90)*255)*0.7)+(B*0.3))+70" --type=Byte --overwrite
  
+ gdal_calc.bat -A D:\RepoGitDir\AJGeo\DEM-to-Topo\Data\s01_e037_slope.tif -B D:\RepoGitDir\AJGeo\DEM-to-Topo\Data\s01_e037_shade.tif --outfile=D:\RepoGitDir\AJGeo\DEM-to-Topo\Data\s01_e037_slope_hillshade.tif --calc="((((A/90)*255)*0.7)+(B*0.3))+70" --type=Byte --overwrite
+ 
  - Give a weight of 70% to Slope and 30% to Hillshade in combo
  - Slope is in degrees. Scale to 255 value range
  - Hillshade is in value range 0 to 255
