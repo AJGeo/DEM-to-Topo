@@ -16,12 +16,9 @@ from osgeo.gdalconst import *
 def main():
     # Get command line arguments.
     if len(sys.argv) != 4:
-        print('Invalid number of arguments')
-        sys.exit(1)
-
+        Usage()
     if not sys.argv[1] or not sys.argv[2] or not sys.argv[3]:
-        print('Invalid arguments supplied')
-        sys.exit()
+        Usage()
 
     folder = sys.argv[1]
     color_altitude_file = sys.argv[2]
@@ -202,6 +199,16 @@ def rasterize_water_to_topo(folder, out_topo_name, out_vector_water):
                                                                              DemToTopoConsts.BLUE_VAL])
     DemToTopoUtills.print_dot()
 
+
+def Usage():
+    print("""Usage: DemToTopo.py {DEM data folder} {Color Altitude File} {DEM file extension}
+
+    where DEM data folder is the dataset path,
+          Color Altitude Value Map File is the file path of the file
+          DEM file extension (e.g. bil)
+          intensity for the color dataset.
+    """)
+    sys.exit(1)
 
 main()
 # Press the green button in the gutter to run the script.
