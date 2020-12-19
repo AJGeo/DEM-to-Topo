@@ -3,6 +3,7 @@
 
 import sys
 import os
+import time
 import numpy
 import DemToTopoConsts
 import DemToTopo_HSV_Merge
@@ -29,6 +30,8 @@ def main():
     # Process each file
     for file_name in dem_file_list:
         print('Processing: ' + file_name, end="")
+        start_time = time.time()
+
         out_cr_name = create_color_relief(folder, file_name, color_altitude_file)
         out_hill_shade_name = create_hill_shade(folder, file_name)
         out_slope_name = create_slope(folder, file_name)
@@ -44,7 +47,7 @@ def main():
         os.remove(out_sl_hs_name)
         os.remove(out_slope_water)
 
-        print('')
+        print('Process time: ' + str(time.time() - start_time))
 
     print('Completed', end='\n')
 
